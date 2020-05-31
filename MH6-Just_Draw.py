@@ -104,7 +104,8 @@ while running:
             if evt.key == K_l:
                 filename = filedialog.askopenfilename()
                 try:
-                    temp = image.load(filename)
+                    temp = image.load(filename).convert()
+                    temp.set_alpha(128)
                     screen.fill(WHITE)
                     screen.blit(temp,(0,0))
                     screenshot = screen.copy()
